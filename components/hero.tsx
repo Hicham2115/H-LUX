@@ -1,12 +1,12 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, CircleDot, Gem, Link2, Circle } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 
 const categories = [
-  { label: "Bagues", href: "#bagues", icon: CircleDot },
-  { label: "Colliers", href: "#colliers", icon: Gem },
-  { label: "Bracelets", href: "#bracelets", icon: Link2 },
-  { label: "Boucles d’oreilles", href: "#boucles", icon: Circle },
+  { label: "Bagues", href: "#bagues", icon: "ring" },
+  { label: "Colliers", href: "#colliers", icon: "necklace" },
+  { label: "Bracelets", href: "#bracelets", icon: "bracelet" },
+  { label: "Boucles d’oreilles", href: "#boucles", icon: "earrings" },
 ];
 
 export default function Hero() {
@@ -70,24 +70,56 @@ export default function Hero() {
 
       <nav
         aria-label="Découvrir par catégorie"
-        className="mx-auto grid max-w-[1480px] grid-cols-2 bg-[#F5F0E6] px-4 py-4 sm:px-8 md:grid-cols-4 md:px-12 md:py-6 xl:px-20"
+        className="grid w-full grid-cols-2 bg-[#F5F0E6] px-4 py-2 sm:px-8 md:grid-cols-4 md:px-12 md:py-3 xl:px-20"
         id="categories"
       >
-        {categories.map(({ label, href, icon: Icon }, index) => (
+        {categories.map(({ label, href, icon }, index) => (
           <a
-            className={`flex min-h-14 items-center justify-center gap-3 px-2 text-[10px] font-semibold uppercase tracking-[0.12em] text-[#394638] transition-colors hover:text-[#66745A] sm:gap-4 sm:text-xs md:justify-center ${
-              index % 2 === 0
-                ? "border-r border-[#66745A]/30 md:border-r"
-                : "md:border-r md:border-[#66745A]/30"
-            } ${index === 3 ? "md:border-r-0" : ""}`}
+            className={`group flex min-h-[58px] items-center justify-center gap-3 border-[#8B8778]/35 px-2 text-[10px] font-semibold uppercase tracking-[0.12em] text-[#25271F] transition-colors hover:text-[#66745A] focus-visible:z-10 focus-visible:outline-2 focus-visible:outline-offset-[-3px] focus-visible:outline-[#66745A] sm:gap-4 sm:text-xs md:min-h-[78px] md:gap-5 md:text-sm ${
+              index % 2 === 0 ? "border-r" : ""
+            } ${index < 2 ? "max-md:border-b" : ""} ${
+              index < 3 ? "md:border-r" : "md:border-r-0"
+            }`}
             href={href}
             key={label}
           >
-            <Icon
+            <svg
               aria-hidden="true"
-              className="size-7 text-[#66745A]"
-              strokeWidth={1.45}
-            />
+              className="size-8 shrink-0 text-[#777567] transition-colors group-hover:text-[#173C2D] sm:size-9 md:size-10"
+              fill="none"
+              stroke="currentColor"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="1.25"
+              viewBox="0 0 24 24"
+            >
+              {icon === "ring" && (
+                <>
+                  <circle cx="12" cy="16" r="6.5" />
+                  <path d="m9.5 7.5 2.5-4 2.5 4-2.5 2.2-2.5-2.2Z" />
+                  <path d="M9.5 7.5h5" />
+                </>
+              )}
+              {icon === "necklace" && (
+                <>
+                  <path d="M3.5 4.5c.6 7.1 4.1 10.4 8.5 10.4s7.9-3.3 8.5-10.4" />
+                  <path d="m12 14.9-3 3 3 3 3-3-3-3Z" />
+                  <path d="m10.5 17.9 1.5 3 1.5-3" />
+                </>
+              )}
+              {icon === "bracelet" && (
+                <>
+                  <ellipse cx="12" cy="12" rx="8.5" ry="5.4" transform="rotate(-24 12 12)" />
+                  <path d="m6 7.8 1.1 1.5m2.1-3.1.8 1.7m3-2.1.2 1.9m3.2-.8-.5 1.8m2.9 1.1-1 1.5m-11.2 1.2 1.1 1.4m2.5-.2.8 1.6m3.1-1 .2 1.9m3.1-2.7-.5 1.8" />
+                </>
+              )}
+              {icon === "earrings" && (
+                <>
+                  <path d="M7 3.5v3m0 0c-3.8 2.1-3.6 12.8 0 12.8s3.8-10.7 0-12.8Z" />
+                  <path d="M17 3.5v3m0 0c-3.8 2.1-3.6 12.8 0 12.8s3.8-10.7 0-12.8Z" />
+                </>
+              )}
+            </svg>
             <span>{label}</span>
           </a>
         ))}
