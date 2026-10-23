@@ -8,6 +8,28 @@
   font-family: "Baskerville", "Iowan Old Style", "Palatino Linotype", Georgia, serif;
 }
 
+button:not(:disabled),
+[role="button"]:not([aria-disabled="true"]),
+a[href] {
+  cursor: pointer;
+}
+
+.h-lux-cta {
+  transition:
+    transform 180ms ease,
+    box-shadow 180ms ease,
+    background-color 180ms ease,
+    color 180ms ease,
+    border-color 180ms ease;
+}
+
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  .h-lux-cta:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 24px rgb(23 60 45 / 18%);
+  }
+}
+
 html {
   scrollbar-color: #173c2d #f5f0e6;
   scrollbar-width: thin;

@@ -1,12 +1,11 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, Gift, RotateCcw, ShieldCheck, Truck } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 
 const assurances = [
-  { Icon: Truck, title: "Livraison gratuite", detail: "Dès 500 MAD" },
-  { Icon: RotateCcw, title: "Retours faciles", detail: "Sous 14 jours" },
-  { Icon: Gift, title: "Emballage cadeau", detail: "Prêt à offrir" },
-  { Icon: ShieldCheck, title: "Paiement sécurisé", detail: "100% fiable" },
+  { value: "500 MAD", label: "Livraison offerte" },
+  { value: "14 jours", label: "Pour changer d’avis" },
+  { value: "100%", label: "Paiement sécurisé" },
 ];
 
 export default function BrandPromise() {
@@ -56,7 +55,7 @@ export default function BrandPromise() {
               pour traverser le temps et accompagner chaque jour.
             </p>
             <Link
-              className="group mt-8 inline-flex min-h-12 items-center gap-8 border border-[#E4C875]/80 px-6 text-[10px] font-semibold uppercase tracking-[0.17em] transition-colors hover:bg-[#E4C875] hover:text-[#173C2D] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#E4C875] sm:mt-9 sm:min-h-14 sm:px-7 sm:text-xs"
+              className="h-lux-cta group mt-8 inline-flex min-h-12 items-center gap-8 border border-[#E4C875]/80 px-6 text-[10px] font-semibold uppercase tracking-[0.17em] transition-colors hover:bg-[#E4C875] hover:text-[#173C2D] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#E4C875] sm:mt-9 sm:min-h-14 sm:px-7 sm:text-xs"
               href="#top"
             >
               Notre histoire
@@ -69,34 +68,42 @@ export default function BrandPromise() {
         </div>
       </div>
 
-      <div className="border-t border-[#D7D1C5] bg-[#F5F0E6] px-5 py-9 sm:px-8 sm:py-11 lg:px-[5.5vw] lg:py-12">
-        <div className="mx-auto max-w-[1440px]">
-          <p className="mb-6 text-center text-[9px] font-semibold uppercase tracking-[0.22em] text-[#777567] sm:mb-7 sm:text-[10px]">
+      <div className="border-t border-[#D7D1C5] bg-[#F5F0E6] px-5 py-10 sm:px-8 sm:py-12 lg:px-[5.5vw] lg:py-16">
+        <div className="mx-auto max-w-[1600px]">
+          <p className="mb-7 text-center text-[9px] font-semibold uppercase tracking-[0.22em] text-[#777567] sm:mb-9 sm:text-[10px]">
             Les attentions H-Lux
           </p>
-          <ul className="grid grid-cols-2 gap-x-3 gap-y-5 sm:grid-cols-4 sm:gap-0">
-            {assurances.map(({ Icon, title, detail }) => (
-              <li
-                className="flex min-h-[76px] items-center gap-3 border-[#D7D1C5] px-2 sm:justify-center sm:gap-3 sm:border-l sm:px-3 first:sm:border-l-0 lg:gap-4 lg:px-5"
-                key={title}
+          <div className="grid grid-cols-2 lg:grid-cols-[0.82fr_0.82fr_0.82fr_1.55fr]">
+            {assurances.map(({ value, label }, index) => (
+              <article
+                className={`min-h-[112px] border-[#D7D1C5] px-3 py-3 sm:min-h-[132px] sm:px-5 lg:px-7 ${
+                  index % 2 === 1 ? "border-l" : ""
+                } ${index > 1 ? "border-t lg:border-t-0" : ""} ${
+                  index > 0 ? "lg:border-l" : "lg:border-l-0"
+                }`}
+                key={value}
               >
-                <span className="flex size-11 shrink-0 items-center justify-center rounded-full border border-[#D7D1C5] bg-[#F9F7F1] text-[#53664E] sm:size-12">
-                  <Icon
-                    aria-hidden="true"
-                    className="size-5 stroke-[1.6] sm:size-[21px]"
-                  />
+                <span className="mb-3 block h-[2px] w-7 bg-[#C49A4A] sm:mb-4" />
+                <span className="block font-sans text-[clamp(1.9rem,3.1vw,3.1rem)] font-bold leading-none tracking-[-0.055em] text-[#173C2D]">
+                  {value}
                 </span>
-                <span className="text-left leading-5">
-                  <span className="block text-[11px] font-semibold text-[#292B25] sm:text-xs lg:text-sm">
-                    {title}
-                  </span>
-                  <span className="mt-0.5 block text-[10px] text-[#777567] sm:text-[11px]">
-                    {detail}
-                  </span>
+                <span className="mt-2 block max-w-[160px] text-xs leading-5 text-[#777567] sm:text-sm">
+                  {label}
                 </span>
-              </li>
+              </article>
             ))}
-          </ul>
+            <article className="col-span-2 border-t border-[#D7D1C5] px-3 py-6 sm:px-5 lg:col-span-1 lg:border-l lg:border-t-0 lg:px-8 lg:py-3">
+              <span className="mb-3 block h-[2px] w-7 bg-[#C49A4A] sm:mb-4" />
+              <h3 className="max-w-[420px] font-sans text-xl font-semibold leading-snug tracking-[-0.03em] text-[#173C2D] sm:text-2xl">
+                Chaque commande, préparée avec attention.
+              </h3>
+              <p className="mt-3 max-w-[460px] text-sm leading-6 text-[#777567] sm:text-base sm:leading-7">
+                Un emballage cadeau élégant et des attentions pensées pour
+                rendre chaque commande aussi spéciale que le bijou qu’elle
+                renferme.
+              </p>
+            </article>
+          </div>
         </div>
       </div>
     </section>

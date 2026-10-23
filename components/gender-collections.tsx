@@ -54,7 +54,7 @@ export default function GenderCollections() {
               {collection.description}
             </p>
             <Link
-              className="mt-8 inline-flex min-h-12 items-center border border-[#F5F0E6]/75 px-5 text-[10px] font-semibold uppercase tracking-[0.16em] text-[#F5F0E6] transition-colors hover:border-[#D9B35F] hover:bg-[#D9B35F] hover:text-[#173C2D] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#D9B35F] sm:px-7 sm:text-xs"
+              className="h-lux-cta mt-8 inline-flex min-h-12 items-center border border-[#F5F0E6]/75 px-5 text-[10px] font-semibold uppercase tracking-[0.16em] text-[#F5F0E6] transition-colors hover:border-[#D9B35F] hover:bg-[#D9B35F] hover:text-[#173C2D] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#D9B35F] sm:px-7 sm:text-xs"
               href="#nouveautes"
             >
               Voir la collection
