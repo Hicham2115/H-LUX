@@ -1,0 +1,84 @@
+import Image from "next/image";
+import Link from "next/link";
+import { ArrowRight } from "lucide-react";
+
+const products = [
+  {
+    name: "Collier Pièce",
+    image: "/images/products/coin-pendant-necklace.png",
+    alt: "Collier doré avec pendentif pièce dans son écrin",
+  },
+  {
+    name: "Collier Émeraude",
+    image: "/imgs/WhatsApp%20Image%202026-10-21%20at%2015.02.55.jpeg",
+    alt: "Collier doré avec une pierre verte sur un présentoir",
+  },
+  {
+    name: "Collier Quartz Rose",
+    image: "/imgs/WhatsApp%20Image%202026-10-21%20at%2015.02.55%20(2).jpeg",
+    alt: "Collier doré avec un pendentif en pierre rose",
+  },
+  {
+    name: "Collier Onyx",
+    image: "/imgs/WhatsApp%20Image%202026-10-21%20at%2015.02.55%20(5).jpeg",
+    alt: "Collier doré avec une pierre noire sur un présentoir",
+  },
+];
+
+export default function FeaturedCollection() {
+  return (
+    <section
+      aria-labelledby="featured-title"
+      className="bg-[#F5F0E6] px-5 py-14 sm:px-8 sm:py-16 lg:px-[5.5vw] lg:py-20"
+      id="nouveautes"
+    >
+      <div className="mx-auto max-w-[1440px]">
+        <div className="relative mb-8 text-center sm:mb-10 lg:mb-12">
+          <p className="mb-2 text-[10px] font-semibold uppercase tracking-[0.25em] text-[#777567] sm:text-xs">
+            Notre sélection
+          </p>
+          <h2
+            className="font-serif text-[clamp(2rem,4vw,3.4rem)] leading-tight tracking-[-0.04em] text-[#173C2D]"
+            id="featured-title"
+          >
+            Nos pièces incontournables
+          </h2>
+          <div
+            aria-hidden="true"
+            className="mx-auto mt-3 flex w-36 items-center gap-2 text-[#C49A4A]"
+          >
+            <span className="h-px flex-1 bg-[#C49A4A]/70" />
+            <span className="size-2 rotate-45 bg-[#C49A4A]" />
+            <span className="h-px flex-1 bg-[#C49A4A]/70" />
+          </div>
+          <Link
+            className="mt-5 inline-flex items-center gap-2 border-b border-[#777567]/50 pb-1 text-[10px] font-semibold uppercase tracking-[0.14em] text-[#373A32] transition-colors hover:border-[#173C2D] hover:text-[#173C2D] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#66745A] sm:text-xs lg:absolute lg:right-0 lg:top-1/2 lg:mt-0 lg:-translate-y-1/2"
+            href="#categories"
+          >
+            Voir toute la collection
+            <ArrowRight aria-hidden="true" className="size-4" />
+          </Link>
+        </div>
+
+        <div className="grid grid-cols-2 gap-x-3 gap-y-6 sm:gap-x-5 sm:gap-y-8 lg:grid-cols-4 lg:gap-6">
+          {products.map((product) => (
+            <article className="min-w-0 text-center" key={product.name}>
+              <div className="relative aspect-[1.08] overflow-hidden bg-[#EAE3D6]">
+                <Image
+                  alt={product.alt}
+                  className="object-cover transition-transform duration-500 hover:scale-[1.03]"
+                  fill
+                  sizes="(min-width: 1024px) 25vw, 50vw"
+                  src={product.image}
+                />
+              </div>
+              <h3 className="mt-3 font-serif text-sm text-[#292B25] sm:mt-4 sm:text-base">
+                {product.name}
+              </h3>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
