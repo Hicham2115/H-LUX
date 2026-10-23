@@ -18,16 +18,18 @@ export default function Hero() {
           className="z-0 hidden object-cover object-[66%_0%] lg:block"
           fill
           priority
+          unoptimized
           sizes="100vw"
-          src="/images/h-lux-campaign-emerald.png"
+          src="/images/h-lux-campaign-warm-2x.png"
         />
         <Image
           alt="Deux modèles portent les bijoux dorés H-Lux devant un fond émeraude profond"
           className="z-0 object-cover object-center lg:hidden"
           fill
           priority
+          unoptimized
           sizes="100vw"
-          src="/images/h-lux-campaign-mobile.png"
+          src="/images/h-lux-campaign-mobile-warm-2x.png"
         />
         <div
           aria-hidden="true"
