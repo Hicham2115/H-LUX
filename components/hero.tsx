@@ -12,7 +12,7 @@ const categories = [
 export default function Hero() {
   return (
     <section aria-labelledby="hero-title" id="top">
-      <div className="relative isolate min-h-[clamp(900px,140svh,1400px)] overflow-hidden bg-[#073D2B] text-[#F5F0E6] lg:min-h-[clamp(620px,calc(100svh-112px),920px)]">
+      <div className="relative isolate min-h-[820px] overflow-hidden bg-[#073D2B] text-[#F5F0E6] lg:min-h-[clamp(620px,calc(100svh-112px),920px)]">
         <Image
           alt="Deux modèles portent les bijoux dorés H-Lux devant un fond émeraude profond"
           className="z-0 hidden object-cover object-[66%_0%] lg:block"
@@ -36,7 +36,7 @@ export default function Hero() {
 
         <div className="relative z-20 mx-auto flex min-h-[inherit] max-w-[1800px] items-end px-6 pb-12 pt-80 lg:items-center lg:px-10 lg:pb-14 lg:pt-10 xl:px-[5.5vw]">
           <div className="max-w-[600px] max-lg:max-w-[900px]">
-            <p className="mb-6 flex items-center gap-4 text-[9px] font-semibold uppercase tracking-[0.22em] text-[#D9B35F] max-lg:absolute max-lg:left-6 max-lg:top-8 max-lg:mb-0 max-lg:gap-3 max-lg:tracking-[0.18em] lg:text-[11px] lg:tracking-[0.25em]">
+            <p className="mb-6 flex items-center gap-4 text-[9px] font-semibold uppercase tracking-[0.22em] text-[#D9B35F] max-lg:hidden lg:text-[11px] lg:tracking-[0.25em]">
               <span
                 aria-hidden="true"
                 className="h-px w-9 bg-[#D9B35F] sm:w-12"
