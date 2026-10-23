@@ -3,7 +3,7 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 
 const assurances = [
-  { value: "500 MAD", label: "Livraison offerte" },
+  { value: "500 MAD", label: "Seuil de livraison gratuite" },
   { value: "14 jours", label: "Pour changer d’avis" },
   { value: "100%", label: "Paiement sécurisé" },
 ];

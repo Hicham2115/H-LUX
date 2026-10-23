@@ -14,6 +14,14 @@ a[href] {
   cursor: pointer;
 }
 
+summary {
+  list-style: none;
+}
+
+summary::-webkit-details-marker {
+  display: none;
+}
+
 .h-lux-cta {
   transition:
     transform 180ms ease,
@@ -21,6 +29,112 @@ a[href] {
     background-color 180ms ease,
     color 180ms ease,
     border-color 180ms ease;
+}
+
+.reviews-marquee {
+  display: grid;
+  gap: 1rem;
+}
+
+.reviews-marquee__track {
+  display: flex;
+  width: max-content;
+  will-change: transform;
+}
+
+.reviews-marquee__track--left {
+  animation: reviews-marquee-left 36s linear infinite;
+}
+
+.reviews-marquee__track--right {
+  animation: reviews-marquee-right 40s linear infinite;
+}
+
+.reviews-marquee:hover .reviews-marquee__track,
+.reviews-marquee:focus-within .reviews-marquee__track {
+  animation-play-state: paused;
+}
+
+.reviews-marquee__group {
+  display: flex;
+  flex: 0 0 auto;
+  gap: 1rem;
+  padding-right: 1rem;
+}
+
+.reviews-card {
+  position: relative;
+  isolation: isolate;
+  width: min(86vw, 620px);
+  flex: 0 0 auto;
+  overflow: hidden;
+  border: 1px solid rgb(169 132 66 / 22%);
+  border-top: 2px solid rgb(169 132 66 / 56%);
+  border-radius: 4px;
+  padding: 1.5rem;
+  background: linear-gradient(135deg, #FBF8F1 0%, #F3EEE3 100%);
+  box-shadow: 0 10px 28px rgb(42 35 22 / 7%), inset 0 1px 0 rgb(255 255 255 / 70%);
+  transition: transform 350ms ease, box-shadow 350ms ease, border-color 350ms ease;
+}
+
+.reviews-card::after {
+  position: absolute;
+  z-index: -1;
+  top: 2.25rem;
+  right: 1.5rem;
+  color: rgb(169 132 66 / 10%);
+  content: "“";
+  font-family: Georgia, serif;
+  font-size: 9rem;
+  line-height: 0.8;
+  pointer-events: none;
+}
+
+.reviews-card > * {
+  position: relative;
+  z-index: 1;
+}
+
+.reviews-card--1 {
+  background: linear-gradient(135deg, #EFF0E8 0%, #E2E5D9 100%);
+}
+
+.reviews-card--2 {
+  background: linear-gradient(135deg, #EDF2ED 0%, #E0E9E1 100%);
+}
+
+.reviews-card--3 {
+  background: linear-gradient(135deg, #F4EDDF 0%, #EADDC8 100%);
+}
+
+@keyframes reviews-marquee-left {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes reviews-marquee-right {
+  from {
+    transform: translateX(-50%);
+  }
+
+  to {
+    transform: translateX(0);
+  }
+}
+
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  .reviews-card:hover {
+    transform: translateY(-4px);
+    border-color: rgb(169 132 66 / 45%);
+    box-shadow: 0 18px 38px rgb(42 35 22 / 12%), inset 0 1px 0 rgb(255 255 255 / 70%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reviews-card {
+    transition: none;
+  }
 }
 
 @media (hover: hover) and (prefers-reduced-motion: no-preference) {
