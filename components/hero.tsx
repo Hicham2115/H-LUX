@@ -12,42 +12,54 @@ const categories = [
 export default function Hero() {
   return (
     <section aria-labelledby="hero-title" id="top">
-      <div className="relative isolate min-h-[760px] overflow-hidden bg-[#073D2B] text-[#F5F0E6] sm:min-h-[820px] lg:min-h-[clamp(620px,calc(100svh-112px),920px)]">
+      <div className="relative isolate min-h-[clamp(900px,140svh,1400px)] overflow-hidden bg-[#073D2B] text-[#F5F0E6] lg:min-h-[clamp(620px,calc(100svh-112px),920px)]">
         <Image
           alt="Deux modèles portent les bijoux dorés H-Lux devant un fond émeraude profond"
-          className="z-0 object-cover object-[66%_0%]"
+          className="z-0 hidden object-cover object-[66%_0%] lg:block"
           fill
           priority
           sizes="100vw"
           src="/images/h-lux-campaign-emerald.png"
         />
+        <Image
+          alt="Deux modèles portent les bijoux dorés H-Lux devant un fond émeraude profond"
+          className="z-0 object-cover object-center lg:hidden"
+          fill
+          priority
+          sizes="100vw"
+          src="/images/h-lux-campaign-mobile.png"
+        />
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-0 z-10 bg-gradient-to-t from-[#061710] via-[#061710]/75 to-transparent lg:hidden"
+        />
 
-        <div className="relative z-20 mx-auto flex min-h-[760px] max-w-[1800px] items-end px-6 pb-12 pt-80 sm:min-h-[820px] sm:items-center sm:px-10 sm:pb-14 sm:pt-10 lg:min-h-[inherit] lg:px-[5.5vw]">
-          <div className="max-w-[600px]">
-            <p className="mb-6 flex items-center gap-4 text-[9px] font-semibold uppercase tracking-[0.22em] text-[#D9B35F] sm:text-[11px] sm:tracking-[0.25em]">
+        <div className="relative z-20 mx-auto flex min-h-[inherit] max-w-[1800px] items-end px-6 pb-12 pt-80 lg:items-center lg:px-10 lg:pb-14 lg:pt-10 xl:px-[5.5vw]">
+          <div className="max-w-[600px] max-lg:max-w-[900px]">
+            <p className="mb-6 flex items-center gap-4 text-[9px] font-semibold uppercase tracking-[0.22em] text-[#D9B35F] max-lg:absolute max-lg:left-6 max-lg:top-8 max-lg:mb-0 max-lg:gap-3 max-lg:tracking-[0.18em] lg:text-[11px] lg:tracking-[0.25em]">
               <span
                 aria-hidden="true"
                 className="h-px w-9 bg-[#D9B35F] sm:w-12"
               />
-              L’art du bijou, inspiré du Maroc
+              Des bijoux façonnés pour vous
             </p>
             <h1
-              className="font-display text-[clamp(3.6rem,7.5vw,8rem)] font-medium uppercase leading-[0.84] tracking-[-0.05em] text-[#F5F0E6]"
+              className="font-display text-[clamp(2.7rem,5.4vw,6rem)] font-medium uppercase leading-[0.88] tracking-[-0.05em] text-[#F5F0E6] max-lg:font-serif max-lg:text-[clamp(3rem,8.5vw,5.25rem)] max-lg:leading-[0.84]"
               id="hero-title"
             >
-              <span className="block">L’éclat</span>
-              <span className="block">du</span>
-              <span className="block italic text-[#D9B35F]">Maroc.</span>
+              <span className="block">L’élégance</span>
+              <span className="block">qui vous</span>
+              <span className="block italic text-[#D9B35F]">ressemble.</span>
             </h1>
-            <p className="mt-7 max-w-[450px] font-display text-base leading-7 text-[#F5F0E6]/90 sm:mt-8 sm:text-lg sm:leading-8">
-              Des pièces choisies avec soin, entre héritage marocain et élégance
-              contemporaine.
+            <p className="mt-7 max-w-[450px] font-display text-base leading-7 text-[#F5F0E6]/90 max-lg:mt-6 max-lg:max-w-[900px] max-lg:font-serif max-lg:text-[clamp(1.05rem,2.4vw,1.5rem)] max-lg:leading-[1.5] lg:mt-8 lg:text-lg lg:leading-8">
+              Des accessoires inspirés du Maroc, pensés avec soin pour révéler
+              votre style au quotidien.
             </p>
             <Link
-              className="mt-8 inline-flex min-h-14 items-center gap-8 border border-[#F5F0E6]/80 px-7 font-display text-[10px] font-medium uppercase tracking-[0.15em] text-[#F5F0E6] transition-colors hover:bg-[#D9B35F] hover:text-[#062b1e] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#D9B35F] sm:mt-10 sm:px-8 sm:text-xs"
+              className="mt-8 inline-flex min-h-14 items-center gap-8 border border-[#F5F0E6]/80 px-7 font-display text-[10px] font-medium uppercase tracking-[0.15em] text-[#F5F0E6] transition-colors hover:bg-[#D9B35F] hover:text-[#062b1e] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#D9B35F] max-lg:mt-10 max-lg:min-h-[68px] max-lg:w-full max-lg:max-w-[640px] max-lg:justify-between max-lg:border-[#D9B35F] max-lg:px-6 max-lg:text-xs lg:mt-10 lg:px-8 lg:text-xs"
               href="#nouveautes"
             >
-              Explorer la collection
+              Découvrir nos bijoux
               <ArrowRight aria-hidden="true" className="size-4" />
             </Link>
           </div>
