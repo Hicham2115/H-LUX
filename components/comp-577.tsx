@@ -14,7 +14,7 @@ const actions = [
 
 export default function CossNavbar() {
   return (
-    <div className="grid h-[58px] grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] items-center bg-[#66745A] px-3 text-[#F5F0E6] sm:h-[64px] sm:px-8 lg:h-[70px] lg:px-[5.5vw]">
+    <div className="grid h-[58px] grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] items-center bg-black px-3 text-white sm:h-[64px] sm:px-8 lg:h-[70px] lg:px-[5.5vw]">
       <div className="flex items-center">
         <div className="lg:hidden">
           <MobileMenu />
@@ -63,7 +63,7 @@ export default function CossNavbar() {
           variant="ghost"
         >
           <ShoppingBag aria-hidden="true" className="size-[19px]" strokeWidth={1.55} />
-          <span className="absolute right-0 top-0 flex size-4 items-center justify-center rounded-full bg-[#A3B18A] text-[9px] leading-none text-[#173c2d]">
+          <span className="absolute right-0 top-0 flex size-4 items-center justify-center rounded-full bg-white text-[9px] leading-none text-black">
             0
           </span>
         </Button>

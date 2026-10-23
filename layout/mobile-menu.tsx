@@ -21,7 +21,7 @@ export default function MobileMenu() {
       </DialogPrimitive.Trigger>
       <DialogPrimitive.Portal>
         <DialogPrimitive.Overlay className="fixed inset-0 z-50 bg-[#173c2d]/45 data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:animate-in data-[state=open]:fade-in-0" />
-        <DialogPrimitive.Content className="fixed inset-y-0 left-0 z-50 flex w-[min(84vw,360px)] flex-col bg-[#66745A] px-6 pb-8 pt-6 text-[#F5F0E6] shadow-2xl outline-none data-[state=closed]:animate-out data-[state=closed]:slide-out-to-left data-[state=open]:animate-in data-[state=open]:slide-in-from-left">
+        <DialogPrimitive.Content className="fixed inset-y-0 left-0 z-50 flex w-[min(84vw,360px)] flex-col bg-black px-6 pb-8 pt-6 text-[#F5F0E6] shadow-2xl outline-none data-[state=closed]:animate-out data-[state=closed]:slide-out-to-left data-[state=open]:animate-in data-[state=open]:slide-in-from-left">
           <div className="flex items-center justify-between border-b border-[#F5F0E6]/25 pb-5">
             <div>
               <DialogPrimitive.Title className="font-serif text-2xl tracking-[0.2em]">

@@ -4,6 +4,10 @@
 
 @custom-variant dark (&:is(.dark *));
 
+.font-display {
+  font-family: "Baskerville", "Iowan Old Style", "Palatino Linotype", Georgia, serif;
+}
+
 html {
   scrollbar-color: #173c2d #f5f0e6;
   scrollbar-width: thin;
