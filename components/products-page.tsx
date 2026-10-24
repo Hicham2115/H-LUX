@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { ArrowRight } from "lucide-react";
 import { useMemo, useState } from "react";
 
 const products = [
@@ -133,8 +134,8 @@ export default function ProductsPage() {
           <span aria-current="page">La collection H-Lux</span>
         </nav>
 
-        <div className="-mx-5 grid overflow-hidden bg-[#EAE3D6] sm:-mx-8 lg:-mx-[5.5vw] lg:min-h-[450px] lg:grid-cols-2">
-          <div className="relative aspect-[1.1] min-h-[280px] overflow-hidden sm:aspect-[1.5] lg:aspect-auto lg:min-h-[450px]">
+        <div className="-mx-5 grid overflow-hidden bg-[#EAE3D6] sm:-mx-8 lg:-mx-[5.5vw] lg:min-h-[560px] lg:grid-cols-2">
+          <div className="relative aspect-[1.1] min-h-[280px] overflow-hidden sm:aspect-[1.5] lg:aspect-auto lg:min-h-[560px]">
             <Image
               alt="Pendentif H-Lux doré présenté dans un écrin"
               className="object-cover object-center"
@@ -144,21 +145,30 @@ export default function ProductsPage() {
               src="/images/products/ChatGPT%20Image%20Oct%2023,%202026,%2009_23_09%20PM.png"
             />
           </div>
-          <div className="flex min-h-[250px] flex-col items-center justify-center px-6 py-10 text-center sm:px-10 sm:py-14 lg:px-[10%]">
-            <p className="mb-3 text-[10px] font-semibold uppercase tracking-[0.24em] text-[#8C7043] sm:text-xs">
-              Les bijoux H-Lux
-            </p>
-            <h1
-              className="max-w-[600px] font-display text-[clamp(2.1rem,5vw,4.5rem)] leading-[0.98] tracking-[-0.04em] text-[#173C2D]"
-              id="products-title"
-            >
-              Une pièce pour chaque histoire.
-            </h1>
-            <p className="mt-5 max-w-md font-serif text-sm leading-6 text-[#686459] sm:text-base sm:leading-7">
-              Des bijoux inspirés du Maroc, choisis pour accompagner les jours
-              précieux comme les plus simples.
-            </p>
-            <span aria-hidden="true" className="mt-7 h-px w-12 bg-[#C49A4A]" />
+          <div className="flex min-h-[300px] items-center bg-[#F5F0E6] px-6 py-12 sm:px-10 sm:py-16 lg:min-h-[560px] lg:px-[10%] lg:py-20">
+            <div className="mx-auto w-full max-w-[560px]">
+              <p className="mb-5 flex items-center gap-3 text-[9px] font-semibold uppercase tracking-[0.24em] text-[#8C7043] sm:text-[10px]">
+                <span aria-hidden="true" className="h-px w-8 bg-[#C49A4A]" />
+                Collection H-Lux · Maroc
+              </p>
+              <h1
+                className="max-w-[540px] font-display text-[clamp(2.6rem,5.2vw,5rem)] leading-[0.98] tracking-[-0.045em] text-[#173C2D]"
+                id="products-title"
+              >
+                L’élégance marocaine, au quotidien.
+              </h1>
+              <p className="mt-6 max-w-[440px] font-serif text-sm leading-6 text-[#686459] sm:text-base sm:leading-7">
+                Des colliers et pendentifs inspirés du Maroc, à porter au
+                quotidien comme lors des grands moments.
+              </p>
+              <Link
+                className="mt-8 inline-flex min-h-12 items-center gap-8 border border-[#173C2D] px-5 text-[10px] font-semibold uppercase tracking-[0.15em] text-[#173C2D] transition-colors hover:bg-[#173C2D] hover:text-[#F5F0E6] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#C49A4A] sm:min-h-14 sm:px-7 sm:text-xs"
+                href="#collection-grid"
+              >
+                Explorer les bijoux
+                <ArrowRight aria-hidden="true" className="size-4" />
+              </Link>
+            </div>
           </div>
         </div>
       </section>
@@ -233,7 +243,7 @@ export default function ProductsPage() {
               </details>
             </aside>
 
-            <div>
+            <div id="collection-grid">
               <div className="mb-5 flex items-center justify-between gap-4 border-b border-[#D7D1C5] pb-4">
                 <p aria-live="polite" className="font-serif text-sm text-[#686459]">
                   {visibleProducts.length} bijoux

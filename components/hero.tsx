@@ -51,7 +51,7 @@ export default function Hero() {
               votre style au quotidien.
             </p>
             <Link
-              className="h-lux-cta mt-8 inline-flex min-h-14 items-center gap-8 border border-[#F5F0E6]/80 px-7 font-display text-[10px] font-medium uppercase tracking-[0.15em] text-[#F5F0E6] transition-colors hover:bg-[#D9B35F] hover:text-[#062b1e] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#D9B35F] max-lg:mt-10 max-lg:min-h-[68px] max-lg:w-full max-lg:max-w-[640px] max-lg:justify-between max-lg:border-[#D9B35F] max-lg:px-6 max-lg:text-xs lg:mt-10 lg:px-8 lg:text-xs"
+              className="h-lux-cta mt-8 inline-flex min-h-14 items-center gap-8 border border-[#F5F0E6]/80 px-7 font-display text-[10px] font-medium uppercase tracking-[0.15em] text-[#F5F0E6] transition-colors hover:border-[#D9B35F] hover:bg-transparent hover:text-[#D9B35F] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#D9B35F] max-lg:mt-10 max-lg:min-h-[68px] max-lg:w-full max-lg:max-w-[640px] max-lg:justify-between max-lg:border-[#D9B35F] max-lg:px-6 max-lg:text-xs lg:mt-10 lg:px-8 lg:text-xs"
               href="#nouveautes"
             >
               Découvrir nos bijoux

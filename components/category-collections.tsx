@@ -58,7 +58,7 @@ export default function CategoryCollections() {
             <Link
               aria-label={`Découvrir les ${category.name.toLowerCase()}`}
               className="group min-w-0 bg-[#F8F5EE] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#66745A]"
-              href="#nouveautes"
+              href="/products"
               key={category.name}
             >
               <div className="relative aspect-[1.16] overflow-hidden bg-[#EAE3D6] sm:aspect-[1.25]">

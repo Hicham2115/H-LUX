@@ -24,11 +24,13 @@ summary::-webkit-details-marker {
 
 .h-lux-cta {
   transition:
-    transform 180ms ease,
-    box-shadow 180ms ease,
     background-color 180ms ease,
     color 180ms ease,
     border-color 180ms ease;
+}
+
+.h-lux-cta svg {
+  transition: transform 180ms ease;
 }
 
 .reviews-marquee {
@@ -138,9 +140,14 @@ summary::-webkit-details-marker {
 }
 
 @media (hover: hover) and (prefers-reduced-motion: no-preference) {
-  .h-lux-cta:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 10px 24px rgb(23 60 45 / 18%);
+  .h-lux-cta:hover svg {
+    transform: translateX(2px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .h-lux-cta svg {
+    transition: none;
   }
 }
 

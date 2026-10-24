@@ -7,6 +7,7 @@ import Faq from "@/components/faq";
 import ReviewsSection from "@/components/reviews-section";
 import Header from "@/layout/header";
 import SiteFooter from "@/components/site-footer";
+import ContactSection from "@/components/contact-section";
 
 export default function Home() {
   return (
@@ -20,6 +21,7 @@ export default function Home() {
         <BrandPromise />
         <ReviewsSection />
         <Faq />
+        <ContactSection />
       </main>
       <SiteFooter />
     </>

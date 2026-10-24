@@ -10,6 +10,7 @@ const shopLinks = [
 
 const guideLinks = [
   { href: "/#faq", label: "Questions fréquentes" },
+  { href: "/#contact", label: "Nous contacter" },
   { href: "/#notre-histoire", label: "Notre histoire" },
   { href: "/#reviews-title", label: "Avis clients" },
 ];

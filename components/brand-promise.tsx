@@ -55,7 +55,7 @@ export default function BrandPromise() {
               pour traverser le temps et accompagner chaque jour.
             </p>
             <Link
-              className="h-lux-cta group mt-8 inline-flex min-h-12 items-center gap-8 border border-[#E4C875]/80 px-6 text-[10px] font-semibold uppercase tracking-[0.17em] transition-colors hover:bg-[#E4C875] hover:text-[#173C2D] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#E4C875] sm:mt-9 sm:min-h-14 sm:px-7 sm:text-xs"
+              className="h-lux-cta group mt-8 inline-flex min-h-12 items-center gap-8 border border-[#E4C875]/80 px-6 text-[10px] font-semibold uppercase tracking-[0.17em] transition-colors hover:bg-transparent hover:text-[#E4C875] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#E4C875] sm:mt-9 sm:min-h-14 sm:px-7 sm:text-xs"
               href="#top"
             >
               Notre histoire
