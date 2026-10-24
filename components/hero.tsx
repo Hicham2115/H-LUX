@@ -5,7 +5,7 @@ import { ArrowRight } from "lucide-react";
 export default function Hero() {
   return (
     <section aria-labelledby="hero-title" id="top">
-      <div className="relative isolate min-h-[820px] overflow-hidden bg-[#073D2B] text-[#F5F0E6] lg:min-h-[clamp(620px,calc(100svh-112px),920px)]">
+      <div className="relative isolate min-h-[min(760px,calc(100svh-110px))] overflow-hidden bg-[#073D2B] text-[#F5F0E6] lg:min-h-[clamp(620px,calc(100svh-112px),920px)]">
         <Image
           alt="Deux modèles portent les bijoux dorés H-Lux devant un fond émeraude profond"
           className="z-0 hidden object-cover object-[66%_0%] lg:block"
@@ -29,7 +29,7 @@ export default function Hero() {
           className="pointer-events-none absolute inset-0 z-10 bg-gradient-to-t from-[#061710] via-[#061710]/75 to-transparent lg:hidden"
         />
 
-        <div className="relative z-20 mx-auto flex min-h-[inherit] max-w-[1800px] items-end px-6 pb-12 pt-80 lg:items-center lg:px-10 lg:pb-14 lg:pt-10 xl:px-[5.5vw]">
+        <div className="relative z-20 mx-auto flex min-h-[inherit] max-w-[1800px] items-end px-6 pb-10 pt-[min(38svh,300px)] lg:items-center lg:px-10 lg:pb-14 lg:pt-10 xl:px-[5.5vw]">
           <div className="max-w-[600px] max-lg:max-w-[900px]">
             <p className="mb-6 flex items-center gap-4 text-[9px] font-semibold uppercase tracking-[0.22em] text-[#D9B35F] max-lg:hidden lg:text-[11px] lg:tracking-[0.25em]">
               <span

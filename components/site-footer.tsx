@@ -1,3 +1,5 @@
+import { CurrentYear } from "@/components/current-year";
+
 const shopLinks = [
   { href: "#categories", label: "Toutes les pièces" },
   { href: "#categories", label: "Boucles d’oreilles" },
@@ -53,7 +55,7 @@ export default function SiteFooter() {
         </div>
 
         <div className="flex flex-col gap-2 border-t border-[#D5B17D]/25 pt-5 text-xs text-[#F5F0E6]/60 sm:flex-row sm:justify-between sm:gap-4">
-          <span>© {new Date().getFullYear()} H-Lux Accessories. Tous droits réservés.</span>
+          <span>© <CurrentYear /> H-Lux Accessories. Tous droits réservés.</span>
           <span>Imaginé avec soin · Inspiré du Maroc</span>
         </div>
       </div>
