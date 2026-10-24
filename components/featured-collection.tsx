@@ -5,22 +5,22 @@ import { ArrowRight } from "lucide-react";
 const products = [
   {
     name: "Collier Pièce",
-    image: "/images/products/coin-pendant-necklace.png",
+    image: "/images/products/ChatGPT%20Image%20Oct%2023,%202026,%2009_23_09%20PM.png",
     alt: "Collier doré avec pendentif pièce dans son écrin",
   },
   {
     name: "Collier Émeraude",
-    image: "/imgs/WhatsApp%20Image%202026-10-21%20at%2015.02.55.jpeg",
+    image: "/images/products/ChatGPT%20Image%20Oct%2023,%202026,%2009_23_22%20PM.png",
     alt: "Collier doré avec une pierre verte sur un présentoir",
   },
   {
     name: "Collier Quartz Rose",
-    image: "/imgs/WhatsApp%20Image%202026-10-21%20at%2015.02.55%20(2).jpeg",
+    image: "/images/products/ChatGPT%20Image%20Oct%2023,%202026,%2009_24_05%20PM.png",
     alt: "Collier doré avec un pendentif en pierre rose",
   },
   {
     name: "Collier Onyx",
-    image: "/imgs/WhatsApp%20Image%202026-10-21%20at%2015.02.55%20(5).jpeg",
+    image: "/images/products/ChatGPT%20Image%20Oct%2023,%202026,%2009_23_14%20PM.png",
     alt: "Collier doré avec une pierre noire sur un présentoir",
   },
 ];

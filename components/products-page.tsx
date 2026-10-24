@@ -8,50 +8,56 @@ const products = [
   {
     name: "Collier Pièce",
     stone: "Médaillon",
-    image: "/images/products/coin-pendant-necklace.png",
+    image: "/images/products/ChatGPT%20Image%20Oct%2023,%202026,%2009_23_09%20PM.png",
     alt: "Collier doré avec pendentif pièce dans son écrin",
   },
   {
     name: "Collier Émeraude",
     stone: "Émeraude",
-    image: "/imgs/WhatsApp%20Image%202026-10-21%20at%2015.02.55.jpeg",
+    image: "/images/products/ChatGPT%20Image%20Oct%2023,%202026,%2009_23_22%20PM.png",
     alt: "Collier doré avec pendentif vert émeraude",
   },
   {
     name: "Collier Saphir",
     stone: "Saphir",
-    image: "/imgs/WhatsApp%20Image%202026-10-21%20at%2015.02.55%20(1).jpeg",
+    image: "/images/products/ChatGPT%20Image%20Oct%2023,%202026,%2009_23_27%20PM.png",
     alt: "Collier doré avec pendentif bleu",
   },
   {
     name: "Collier Quartz Rose",
     stone: "Quartz rose",
-    image: "/imgs/WhatsApp%20Image%202026-10-21%20at%2015.02.55%20(2).jpeg",
+    image: "/images/products/ChatGPT%20Image%20Oct%2023,%202026,%2009_24_05%20PM.png",
     alt: "Collier doré avec pendentif rose pâle",
   },
   {
     name: "Collier Jade",
     stone: "Jade",
-    image: "/imgs/WhatsApp%20Image%202026-10-21%20at%2015.02.55%20(3).jpeg",
+    image: "/images/products/ChatGPT%20Image%20Oct%2023,%202026,%2009_23_46%20PM.png",
     alt: "Collier doré avec pendentif vert jade",
   },
   {
     name: "Collier Citrine",
     stone: "Citrine",
-    image: "/imgs/WhatsApp%20Image%202026-10-21%20at%2015.02.55%20(4).jpeg",
+    image: "/images/products/ChatGPT%20Image%20Oct%2023,%202026,%2009_23_33%20PM.png",
     alt: "Collier doré avec pendentif jaune citrine",
   },
   {
     name: "Collier Onyx",
     stone: "Onyx",
-    image: "/imgs/WhatsApp%20Image%202026-10-21%20at%2015.02.55%20(5).jpeg",
+    image: "/images/products/ChatGPT%20Image%20Oct%2023,%202026,%2009_23_14%20PM.png",
     alt: "Collier doré avec pendentif noir onyx",
   },
   {
     name: "Collier Grenat",
     stone: "Grenat",
-    image: "/imgs/WhatsddApp%20Image%202026-10-21%20at%2015.02.55.jpeg",
+    image: "/images/products/ChatGPT%20Image%20Oct%2023,%202026,%2009_23_51%20PM.png",
     alt: "Collier argenté avec pendentif rouge grenat",
+  },
+  {
+    name: "Médaillon Héritage",
+    stone: "Médaillon",
+    image: "/images/products/ChatGPT%20Image%20Oct%2023,%202026,%2009_24_01%20PM.png",
+    alt: "Collier doré avec pendentif pièce ancien",
   },
 ];
 
@@ -135,7 +141,7 @@ export default function ProductsPage() {
               fill
               priority
               sizes="(max-width: 1023px) 100vw, 50vw"
-              src="/images/products/coin-pendant-necklace.png"
+              src="/images/products/ChatGPT%20Image%20Oct%2023,%202026,%2009_23_09%20PM.png"
             />
           </div>
           <div className="flex min-h-[250px] flex-col items-center justify-center px-6 py-10 text-center sm:px-10 sm:py-14 lg:px-[10%]">
