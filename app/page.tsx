@@ -6,6 +6,7 @@ import BrandPromise from "@/components/brand-promise";
 import Faq from "@/components/faq";
 import ReviewsSection from "@/components/reviews-section";
 import Header from "@/layout/header";
+import SiteFooter from "@/components/site-footer";
 
 export default function Home() {
   return (
@@ -20,6 +21,7 @@ export default function Home() {
         <ReviewsSection />
         <Faq />
       </main>
+      <SiteFooter />
     </>
   );
 }
