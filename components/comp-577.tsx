@@ -35,7 +35,7 @@ export default function CossNavbar() {
         </nav>
       </div>
 
-      <Link aria-label="H-Lux Accessories — accueil" className="text-center" href="#top">
+      <Link aria-label="H-Lux Accessories — accueil" className="text-center" href="/#top">
         <span className="block font-serif text-[19px] leading-none tracking-[0.2em] text-[#F5F0E6] sm:text-[26px] sm:tracking-[0.24em]">
           H-LUXE
         </span>

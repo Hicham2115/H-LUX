@@ -53,7 +53,7 @@ export default function FeaturedCollection() {
           </div>
           <Link
             className="mt-5 inline-flex items-center gap-2 border-b border-[#777567]/50 pb-1 text-[10px] font-semibold uppercase tracking-[0.14em] text-[#373A32] transition-colors hover:border-[#173C2D] hover:text-[#173C2D] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#66745A] sm:text-xs lg:absolute lg:right-0 lg:top-1/2 lg:mt-0 lg:-translate-y-1/2"
-            href="#categories"
+            href="/products"
           >
             Voir toute la collection
             <ArrowRight aria-hidden="true" className="size-4" />
