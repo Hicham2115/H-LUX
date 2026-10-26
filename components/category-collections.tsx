@@ -64,7 +64,7 @@ export default function CategoryCollections() {
               <div className="relative aspect-[1.16] overflow-hidden bg-[#EAE3D6] sm:aspect-[1.25]">
                 <Image
                   alt=""
-                  className={`object-cover ${category.position} transition-transform duration-500 group-hover:scale-[1.04]`}
+                  className={`object-cover ${category.position}`}
                   fill
                   sizes="(min-width: 1024px) 25vw, 50vw"
                   src={category.image}

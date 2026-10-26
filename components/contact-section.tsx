@@ -271,7 +271,7 @@ export default function ContactSection() {
                 type="submit"
               >
                 Préparer mon message
-                <ArrowRight aria-hidden="true" className="size-4 transition-transform group-hover:translate-x-1" />
+                <ArrowRight aria-hidden="true" className="size-4" />
               </button>
             </div>
             {notice && (

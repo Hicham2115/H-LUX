@@ -1,29 +1,14 @@
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
+import { products } from "@/lib/products";
 
-const products = [
-  {
-    name: "Collier Pièce",
-    image: "/images/products/ChatGPT%20Image%20Oct%2023,%202026,%2009_23_09%20PM.png",
-    alt: "Collier doré avec pendentif pièce dans son écrin",
-  },
-  {
-    name: "Collier Émeraude",
-    image: "/images/products/ChatGPT%20Image%20Oct%2023,%202026,%2009_23_22%20PM.png",
-    alt: "Collier doré avec une pierre verte sur un présentoir",
-  },
-  {
-    name: "Collier Quartz Rose",
-    image: "/images/products/ChatGPT%20Image%20Oct%2023,%202026,%2009_24_05%20PM.png",
-    alt: "Collier doré avec un pendentif en pierre rose",
-  },
-  {
-    name: "Collier Onyx",
-    image: "/images/products/ChatGPT%20Image%20Oct%2023,%202026,%2009_23_14%20PM.png",
-    alt: "Collier doré avec une pierre noire sur un présentoir",
-  },
-];
+const featuredSlugs = new Set([
+  "collier-piece",
+  "collier-emeraude",
+  "collier-quartz-rose",
+  "collier-onyx",
+]);
 
 export default function FeaturedCollection() {
   return (
@@ -61,20 +46,20 @@ export default function FeaturedCollection() {
         </div>
 
         <div className="grid grid-cols-2 gap-x-3 gap-y-6 sm:gap-x-5 sm:gap-y-8 lg:grid-cols-4 lg:gap-6">
-          {products.map((product) => (
+          {products.filter((product) => featuredSlugs.has(product.slug)).map((product) => (
             <article className="min-w-0 text-center" key={product.name}>
               <Link
                 aria-label={`Découvrir ${product.name}`}
                 className="block focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#66745A]"
-                href="/products"
+                href={`/products/${product.slug}`}
               >
                 <div className="relative aspect-[1.08] overflow-hidden bg-[#EAE3D6]">
                   <Image
-                    alt={product.alt}
-                    className="object-cover transition-transform duration-500 hover:scale-[1.03]"
+                    alt={product.images[0].alt}
+                    className="object-cover"
                     fill
                     sizes="(min-width: 1024px) 25vw, 50vw"
-                    src={product.image}
+                    src={product.images[0].src}
                   />
                 </div>
                 <h3 className="mt-3 font-serif text-sm text-[#292B25] sm:mt-4 sm:text-base">

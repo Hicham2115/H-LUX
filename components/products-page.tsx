@@ -4,63 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { useMemo, useState } from "react";
-
-const products = [
-  {
-    name: "Collier Pièce",
-    stone: "Médaillon",
-    image: "/images/products/ChatGPT%20Image%20Oct%2023,%202026,%2009_23_09%20PM.png",
-    alt: "Collier doré avec pendentif pièce dans son écrin",
-  },
-  {
-    name: "Collier Émeraude",
-    stone: "Émeraude",
-    image: "/images/products/ChatGPT%20Image%20Oct%2023,%202026,%2009_23_22%20PM.png",
-    alt: "Collier doré avec pendentif vert émeraude",
-  },
-  {
-    name: "Collier Saphir",
-    stone: "Saphir",
-    image: "/images/products/ChatGPT%20Image%20Oct%2023,%202026,%2009_23_27%20PM.png",
-    alt: "Collier doré avec pendentif bleu",
-  },
-  {
-    name: "Collier Quartz Rose",
-    stone: "Quartz rose",
-    image: "/images/products/ChatGPT%20Image%20Oct%2023,%202026,%2009_24_05%20PM.png",
-    alt: "Collier doré avec pendentif rose pâle",
-  },
-  {
-    name: "Collier Jade",
-    stone: "Jade",
-    image: "/images/products/ChatGPT%20Image%20Oct%2023,%202026,%2009_23_46%20PM.png",
-    alt: "Collier doré avec pendentif vert jade",
-  },
-  {
-    name: "Collier Citrine",
-    stone: "Citrine",
-    image: "/images/products/ChatGPT%20Image%20Oct%2023,%202026,%2009_23_33%20PM.png",
-    alt: "Collier doré avec pendentif jaune citrine",
-  },
-  {
-    name: "Collier Onyx",
-    stone: "Onyx",
-    image: "/images/products/ChatGPT%20Image%20Oct%2023,%202026,%2009_23_14%20PM.png",
-    alt: "Collier doré avec pendentif noir onyx",
-  },
-  {
-    name: "Collier Grenat",
-    stone: "Grenat",
-    image: "/images/products/ChatGPT%20Image%20Oct%2023,%202026,%2009_23_51%20PM.png",
-    alt: "Collier argenté avec pendentif rouge grenat",
-  },
-  {
-    name: "Médaillon Héritage",
-    stone: "Médaillon",
-    image: "/images/products/ChatGPT%20Image%20Oct%2023,%202026,%2009_24_01%20PM.png",
-    alt: "Collier doré avec pendentif pièce ancien",
-  },
-];
+import { products } from "@/lib/products";
 
 const sortOptions = [
   { value: "featured", label: "Recommandés" },
@@ -137,12 +81,12 @@ export default function ProductsPage() {
         <div className="-mx-5 grid overflow-hidden bg-[#EAE3D6] sm:-mx-8 lg:-mx-[5.5vw] lg:min-h-[560px] lg:grid-cols-2">
           <div className="relative aspect-[1.1] min-h-[280px] overflow-hidden sm:aspect-[1.5] lg:aspect-auto lg:min-h-[560px]">
             <Image
-              alt="Pendentif H-Lux doré présenté dans un écrin"
+              alt={products[0].images[0].alt}
               className="object-cover object-center"
               fill
               priority
               sizes="(max-width: 1023px) 100vw, 50vw"
-              src="/images/products/ChatGPT%20Image%20Oct%2023,%202026,%2009_23_09%20PM.png"
+              src={products[0].images[0].src}
             />
           </div>
           <div className="flex min-h-[300px] items-center bg-[#F5F0E6] px-6 py-12 sm:px-10 sm:py-16 lg:min-h-[560px] lg:px-[10%] lg:py-20">
@@ -255,14 +199,19 @@ export default function ProductsPage() {
 
               <div className="grid grid-cols-2 gap-x-3 gap-y-8 sm:grid-cols-3 sm:gap-x-5 sm:gap-y-10 xl:grid-cols-4 xl:gap-x-7">
                 {visibleProducts.map((product, index) => (
-                  <article className="group min-w-0" key={product.name}>
+                  <article className="group min-w-0" key={product.slug}>
+                    <Link
+                      aria-label={`Découvrir ${product.name}`}
+                      className="block focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#66745A]"
+                      href={`/products/${product.slug}`}
+                    >
                     <div className="relative aspect-[0.86] overflow-hidden bg-[#EAE3D6] sm:aspect-square">
                       <Image
-                        alt={product.alt}
-                        className="object-cover transition-transform duration-500 group-hover:scale-[1.04] motion-reduce:transition-none"
+                        alt={product.images[0].alt}
+                        className="object-cover"
                         fill
                         sizes="(max-width: 639px) 47vw, (max-width: 1279px) 30vw, 23vw"
-                        src={product.image}
+                        src={product.images[0].src}
                       />
                       {index < 2 && (
                         <span className="absolute left-2 top-2 bg-[#F5F0E6]/90 px-2 py-1 text-[8px] font-semibold uppercase tracking-[0.12em] text-[#173C2D] sm:left-3 sm:top-3 sm:text-[9px]">
@@ -278,6 +227,7 @@ export default function ProductsPage() {
                         {product.name}
                       </h2>
                     </div>
+                    </Link>
                   </article>
                 ))}
               </div>

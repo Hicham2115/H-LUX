@@ -61,7 +61,7 @@ export default function BrandPromise() {
               Notre histoire
               <ArrowRight
                 aria-hidden="true"
-                className="size-4 transition-transform group-hover:translate-x-1"
+                className="size-4"
               />
             </Link>
           </div>

@@ -29,10 +29,6 @@ summary::-webkit-details-marker {
     border-color 180ms ease;
 }
 
-.h-lux-cta svg {
-  transition: transform 180ms ease;
-}
-
 .reviews-marquee {
   display: grid;
   gap: 1rem;
@@ -135,18 +131,6 @@ summary::-webkit-details-marker {
 
 @media (prefers-reduced-motion: reduce) {
   .reviews-card {
-    transition: none;
-  }
-}
-
-@media (hover: hover) and (prefers-reduced-motion: no-preference) {
-  .h-lux-cta:hover svg {
-    transform: translateX(2px);
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .h-lux-cta svg {
     transition: none;
   }
 }
