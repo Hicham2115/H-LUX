@@ -86,8 +86,6 @@ const fieldClassName =
 
 export default function ProductOrderForm({ productName }: { productName: string }) {
   const [attemptedSubmit, setAttemptedSubmit] = useState(false);
-  const [notice, setNotice] = useState("");
-  const [noticeError, setNoticeError] = useState(false);
   const [selectedArea, setSelectedArea] = useState("");
   const freeDeliveryAreas = ["Hay Hassani", "Médina", "Maârif"];
   const deliveryFee = freeDeliveryAreas.includes(selectedArea) ? 0 : 30;
@@ -96,22 +94,7 @@ export default function ProductOrderForm({ productName }: { productName: string 
   const form = useForm({
     defaultValues: { name: "", phone: "", area: "", address: "" },
     validators: { onSubmit: orderSchema },
-    onSubmit: async ({ value }) => {
-      setNoticeError(false);
-      try {
-        const response = await fetch("/api/orders", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ ...value, productName }),
-        });
-        const result: { error?: string } = await response.json();
-        if (!response.ok) throw new Error(result.error || "La commande n’a pas pu être envoyée.");
-        setNotice(`Votre commande a été enregistrée. Total : ${total} Dh.`);
-      } catch (error) {
-        setNoticeError(true);
-        setNotice(error instanceof Error ? error.message : "Impossible d’envoyer la commande.");
-      }
-    },
+    onSubmit: async () => undefined,
   });
 
   return (
@@ -122,8 +105,6 @@ export default function ProductOrderForm({ productName }: { productName: string 
         event.preventDefault();
         event.stopPropagation();
         setAttemptedSubmit(true);
-        setNotice("");
-        setNoticeError(false);
         void form.handleSubmit();
       }}
     >
@@ -310,7 +291,6 @@ export default function ProductOrderForm({ productName }: { productName: string 
         Commander · WhatsApp · {total} Dh
         <span aria-hidden="true">→</span>
       </button>
-      {notice && <p aria-live="polite" className={`mt-3 text-sm leading-6 ${noticeError ? "text-[#A44435]" : "text-[#173C2D]"}`}>{notice}</p>}
     </form>
   );
 }
