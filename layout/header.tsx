@@ -1,10 +1,10 @@
 import CossNavbar from "@/components/comp-577";
 
 const services = [
-  "Livraison gratuite dès 500 MAD",
+  "Livraison offerte à Hay Hassani, Médina et Maârif",
   "Satisfait ou remboursé sous 14 jours",
   "Emballage cadeau élégant",
-  "Paiement sécurisé",
+  "Paiement en espèces à la livraison",
 ];
 
 export default function Header() {

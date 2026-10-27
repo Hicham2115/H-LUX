@@ -20,7 +20,7 @@ export default function Home() {
         <CategoryCollections />
         <BrandPromise />
         <ReviewsSection />
-        <Faq />
+        {/* <Faq /> */}
         <ContactSection />
       </main>
       <SiteFooter />

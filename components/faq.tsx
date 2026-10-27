@@ -12,7 +12,7 @@ const questions = [
   {
     question: "La livraison est-elle offerte ?",
     answer:
-      "Oui, la livraison est gratuite dès 500 MAD d’achat. Le montant de votre commande s’affiche avant sa validation.",
+      "À Casablanca, la livraison est offerte à Hay Hassani, Médina et Maârif. Elle coûte 30 Dh dans les autres quartiers. Le tarif et le total s’affichent avant l’envoi de votre commande.",
   },
   {
     question: "Puis-je retourner ma commande ?",
@@ -25,9 +25,9 @@ const questions = [
       "Oui. Les commandes sont préparées avec attention et peuvent être présentées dans un emballage cadeau élégant.",
   },
   {
-    question: "Le paiement en ligne est-il sécurisé ?",
+    question: "Comment régler ma commande ?",
     answer:
-      "Oui, le paiement est effectué via un parcours sécurisé au moment de la commande.",
+      "Le paiement se fait en espèces à la livraison. Aucun paiement en ligne n’est proposé.",
   },
 ];
 

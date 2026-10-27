@@ -76,11 +76,6 @@ export default async function ProductPage({ params }: ProductPageProps) {
                   </p>
                 </div>
 
-                <div className="mt-7 flex flex-col gap-3 text-sm text-[#4D4B43] sm:flex-row sm:gap-8">
-                  <p><span className="font-semibold text-[#173C2D]">Livraison offerte</span> dès 500 MAD</p>
-                  <p><span className="font-semibold text-[#173C2D]">Retours sous 14 jours</span></p>
-                </div>
-
                 <ProductOrderForm productName={product.name} />
                 <Link
                   className="mt-6 inline-flex items-center gap-2 text-[10px] font-semibold uppercase tracking-[0.14em] text-[#777567] transition-colors hover:text-[#173C2D] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#C49A4A]"

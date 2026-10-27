@@ -4,11 +4,6 @@ import { ArrowRight } from "lucide-react";
 
 const categories = [
   {
-    name: "Bagues",
-    image: "/images/categories/bagues.png",
-    position: "object-center",
-  },
-  {
     name: "Colliers",
     image: "/images/categories/colliers.png",
     position: "object-center",
@@ -19,8 +14,8 @@ const categories = [
     position: "object-center",
   },
   {
-    name: "Boucles d’oreilles",
-    image: "/images/categories/boucles.png",
+    name: "Montres",
+    image: "/images/categories/watches.png",
     position: "object-center",
   },
 ];
@@ -53,7 +48,7 @@ export default function CategoryCollections() {
           </div>
         </header>
 
-        <div className="grid grid-cols-2 gap-3 sm:gap-5 lg:grid-cols-4 lg:gap-4 xl:gap-6">
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-5 lg:grid-cols-3 lg:gap-6">
           {categories.map((category) => (
             <Link
               aria-label={`Découvrir les ${category.name.toLowerCase()}`}
@@ -61,12 +56,12 @@ export default function CategoryCollections() {
               href="/products"
               key={category.name}
             >
-              <div className="relative aspect-[1.16] overflow-hidden bg-[#EAE3D6] sm:aspect-[1.25]">
+              <div className="relative aspect-[1.35] overflow-hidden bg-[#EAE3D6] sm:aspect-[1.2]">
                 <Image
                   alt=""
                   className={`object-cover ${category.position}`}
                   fill
-                  sizes="(min-width: 1024px) 25vw, 50vw"
+                  sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
                   src={category.image}
                 />
               </div>

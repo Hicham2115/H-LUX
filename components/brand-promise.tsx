@@ -3,9 +3,9 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 
 const assurances = [
-  { value: "500 MAD", label: "Seuil de livraison gratuite" },
+  { value: "30 Dh", label: "Livraison à Casablanca · offerte à Hay Hassani, Médina et Maârif" },
   { value: "14 jours", label: "Pour changer d’avis" },
-  { value: "100%", label: "Paiement sécurisé" },
+  { value: "COD", label: "Paiement en espèces à la livraison" },
 ];
 
 export default function BrandPromise() {
