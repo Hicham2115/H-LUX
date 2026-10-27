@@ -2,12 +2,12 @@ import Image from "next/image";
 import Link from "next/link";
 
 const collections = [
-  {
-    title: "Pour elle",
-    description: "Des bijoux raffinés pour illuminer chaque instant.",
-    image: "/images/collections/for-her.png",
-    alt: "Modèle portant des bijoux dorés H-Lux",
-  },
+  // {
+  //   title: "Pour elle",
+  //   description: "Des bijoux raffinés pour illuminer chaque instant.",
+  //   image: "/images/collections/for-her.png",
+  //   alt: "Modèle portant des bijoux dorés H-Lux",
+  // },
   {
     title: "Pour lui",
     description: "Des accessoires au caractère affirmé et intemporel.",
