@@ -20,7 +20,7 @@ export default function GenderCollections() {
   return (
     <section
       aria-label="Collections pour elle et pour lui"
-      className="grid grid-cols-1 gap-0 lg:grid-cols-2"
+      className={`grid grid-cols-1 gap-0 ${collections.length > 1 ? "lg:grid-cols-2" : "lg:grid-cols-1"}`}
     >
       {collections.map((collection) => (
         <article
@@ -31,7 +31,7 @@ export default function GenderCollections() {
             alt={collection.alt}
             className="-z-20 object-cover object-[64%_center]"
             fill
-            sizes="(min-width: 1024px) 50vw, 100vw"
+            sizes={collections.length > 1 ? "(min-width: 1024px) 50vw, 100vw" : "100vw"}
             src={collection.image}
             unoptimized
           />
