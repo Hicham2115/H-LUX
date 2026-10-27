@@ -9,6 +9,8 @@ import { getProduct, products } from "@/lib/products";
 import Header from "@/layout/header";
 import { notFound } from "next/navigation";
 
+export const instant = false;
+
 type ProductPageProps = {
   params: Promise<{ slug: string }>;
 };

@@ -2,7 +2,7 @@
 
 import { useForm } from "@tanstack/react-form";
 import { Combobox } from "@base-ui/react/combobox";
-import { ChevronDown } from "lucide-react";
+import { Check, ChevronDown, X } from "lucide-react";
 import { useState } from "react";
 import { z } from "zod";
 import { createWhatsAppUrl } from "@/lib/whatsapp";
@@ -86,6 +86,7 @@ const fieldClassName =
 
 export default function ProductOrderForm({ productName }: { productName: string }) {
   const [attemptedSubmit, setAttemptedSubmit] = useState(false);
+  const [showWhatsAppNotice, setShowWhatsAppNotice] = useState(false);
   const [selectedArea, setSelectedArea] = useState("");
   const freeDeliveryAreas = ["Hay Hassani", "Médina", "Maârif"];
   const deliveryFee = freeDeliveryAreas.includes(selectedArea) ? 0 : 30;
@@ -285,12 +286,38 @@ export default function ProductOrderForm({ productName }: { productName: string 
           ].join("\n");
 
           window.open(createWhatsAppUrl(message), "_blank", "noopener,noreferrer");
+          setShowWhatsAppNotice(true);
         }}
         type="submit"
       >
         Commander · WhatsApp · {total} Dh
         <span aria-hidden="true">→</span>
       </button>
+      {showWhatsAppNotice && (
+        <div
+          aria-live="polite"
+          className="fixed bottom-5 right-5 z-[100] flex w-[min(24rem,calc(100vw-2.5rem))] gap-3 border border-[#D8D0C1] bg-[#F5F0E6] p-4 text-[#292B25] shadow-xl"
+          role="status"
+        >
+          <span className="grid size-9 shrink-0 place-items-center rounded-full bg-[#173C2D] text-[#F5F0E6]">
+            <Check aria-hidden="true" className="size-4" />
+          </span>
+          <div className="min-w-0 flex-1">
+            <p className="font-semibold text-[#173C2D]">Votre demande est prête</p>
+            <p className="mt-1 text-sm leading-5 text-[#777567]">
+              WhatsApp s’est ouvert avec les détails. Appuyez sur Envoyer pour confirmer la commande.
+            </p>
+          </div>
+          <button
+            aria-label="Fermer"
+            className="grid size-8 shrink-0 place-items-center text-[#777567] outline-none hover:text-[#173C2D] focus-visible:ring-2 focus-visible:ring-[#173C2D]"
+            onClick={() => setShowWhatsAppNotice(false)}
+            type="button"
+          >
+            <X aria-hidden="true" className="size-4" />
+          </button>
+        </div>
+      )}
     </form>
   );
 }
