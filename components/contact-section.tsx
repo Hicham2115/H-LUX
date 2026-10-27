@@ -5,6 +5,7 @@ import { ArrowRight, Clock3, MessageCircle } from "lucide-react";
 import Link from "next/link";
 import { useState } from "react";
 import { z } from "zod";
+import { createWhatsAppUrl } from "@/lib/whatsapp";
 
 const contactSchema = z.object({
   name: z.string().trim().min(2, "Indiquez votre nom.").max(80, "Le nom est trop long."),
@@ -32,16 +33,20 @@ function errorText(errors: unknown[]) {
 
 export default function ContactSection() {
   const [hasSubmitted, setHasSubmitted] = useState(false);
-  const [notice, setNotice] = useState("");
 
   const form = useForm({
     defaultValues: { name: "", email: "", subject: "", message: "" },
     validators: { onSubmit: contactSchema },
-    onSubmit: async () => {
+    onSubmit: async ({ value }) => {
       setHasSubmitted(true);
-      setNotice(
-        "Votre message est prêt. L’envoi sera activé dès que notre messagerie sera connectée.",
-      );
+      const message = [
+        "Bonjour, je vous contacte depuis le formulaire H-Lux.",
+        `Nom : ${value.name}`,
+        `E-mail : ${value.email}`,
+        `Objet : ${value.subject}`,
+        `Message : ${value.message}`,
+      ].join("\n");
+      window.location.assign(createWhatsAppUrl(message));
     },
     onSubmitInvalid: () => {
       setHasSubmitted(true);
@@ -120,7 +125,6 @@ export default function ContactSection() {
             onSubmit={(event) => {
               event.preventDefault();
               event.stopPropagation();
-              setNotice("");
               void form.handleSubmit();
             }}
           >
@@ -264,21 +268,16 @@ export default function ContactSection() {
 
             <div className="mt-6 flex flex-col items-start gap-4 border-t border-[#D8D0C1] pt-5 sm:mt-7 sm:flex-row sm:items-center sm:justify-between">
               <p className="max-w-[300px] text-xs leading-5 text-[#777567]">
-                L’envoi du formulaire sera activé après connexion de notre messagerie.
+                WhatsApp s’ouvrira avec votre message prérempli. Appuyez sur Envoyer dans l’application.
               </p>
               <button
                 className="h-lux-cta group inline-flex min-h-12 w-full items-center justify-between gap-8 border border-[#173C2D] bg-[#173C2D] px-5 text-[10px] font-semibold uppercase tracking-[0.14em] text-[#F5F0E6] hover:border-[#173C2D] hover:bg-transparent hover:text-[#173C2D] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#C49A4A] sm:w-auto sm:px-6 sm:text-xs"
                 type="submit"
               >
-                Préparer mon message
+                Continuer sur WhatsApp
                 <ArrowRight aria-hidden="true" className="size-4" />
               </button>
             </div>
-            {notice && (
-              <p aria-live="polite" className="mt-4 border-l-2 border-[#C49A4A] bg-[#F1EBDD] px-4 py-3 text-sm leading-6 text-[#373A32]" role="status">
-                {notice}
-              </p>
-            )}
           </form>
         </div>
       </div>

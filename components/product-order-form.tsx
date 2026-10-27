@@ -5,6 +5,7 @@ import { Combobox } from "@base-ui/react/combobox";
 import { ChevronDown } from "lucide-react";
 import { useState } from "react";
 import { z } from "zod";
+import { createWhatsAppUrl } from "@/lib/whatsapp";
 
 const orderSchema = z.object({
   name: z.string().trim().min(2, "Indiquez votre nom.").max(80, "Le nom est trop long."),
@@ -284,9 +285,29 @@ export default function ProductOrderForm({ productName }: { productName: string 
 
       <button
         className="mt-5 inline-flex min-h-14 w-full items-center justify-between bg-[#173C2D] px-5 text-left text-[10px] font-semibold uppercase tracking-[0.15em] text-[#F5F0E6] transition-colors hover:bg-[#315B45] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#C49A4A] sm:px-7 sm:text-xs"
+        onClick={() => {
+          const result = orderSchema.safeParse(form.state.values);
+          if (!result.success) return;
+
+          const { name, phone, area, address } = result.data;
+          const message = [
+            "Bonjour, je souhaite commander :",
+            `Produit : ${productName}`,
+            `Nom : ${name}`,
+            `Téléphone : ${phone}`,
+            `Quartier : ${area}`,
+            `Adresse : ${address}`,
+            "Prix : 70 Dh",
+            `Livraison : ${deliveryFee === 0 ? "offerte" : `${deliveryFee} Dh`}`,
+            `Total : ${total} Dh`,
+            "Paiement : espèces à la livraison",
+          ].join("\n");
+
+          window.open(createWhatsAppUrl(message), "_blank", "noopener,noreferrer");
+        }}
         type="submit"
       >
-        Envoyer ma demande · {total} Dh
+        Commander · WhatsApp · {total} Dh
         <span aria-hidden="true">→</span>
       </button>
       {notice && <p aria-live="polite" className={`mt-3 text-sm leading-6 ${noticeError ? "text-[#A44435]" : "text-[#173C2D]"}`}>{notice}</p>}
