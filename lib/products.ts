@@ -1,6 +1,8 @@
 export const products = [
   {
     slug: "collier-piece",
+    category: "Collier",
+    price: 70,
     name: "Collier Pièce",
     stone: "Médaillon",
     images: [
@@ -13,6 +15,8 @@ export const products = [
   },
   {
     slug: "collier-emeraude",
+    category: "Collier",
+    price: 70,
     name: "Collier Émeraude",
     stone: "Émeraude",
     images: [
@@ -25,6 +29,8 @@ export const products = [
   },
   {
     slug: "collier-saphir",
+    category: "Collier",
+    price: 70,
     name: "Collier Saphir",
     stone: "Saphir",
     images: [
@@ -37,6 +43,8 @@ export const products = [
   },
   {
     slug: "collier-quartz-rose",
+    category: "Collier",
+    price: 70,
     name: "Collier Quartz Rose",
     stone: "Quartz rose",
     images: [
@@ -49,6 +57,8 @@ export const products = [
   },
   {
     slug: "collier-jade",
+    category: "Collier",
+    price: 70,
     name: "Collier Jade",
     stone: "Jade",
     images: [
@@ -61,6 +71,8 @@ export const products = [
   },
   {
     slug: "collier-citrine",
+    category: "Collier",
+    price: 70,
     name: "Collier Citrine",
     stone: "Citrine",
     images: [
@@ -73,6 +85,8 @@ export const products = [
   },
   {
     slug: "collier-onyx",
+    category: "Collier",
+    price: 70,
     name: "Collier Onyx",
     stone: "Onyx",
     images: [
@@ -85,6 +99,8 @@ export const products = [
   },
   {
     slug: "collier-grenat",
+    category: "Collier",
+    price: 70,
     name: "Collier Grenat",
     stone: "Grenat",
     images: [
@@ -97,6 +113,8 @@ export const products = [
   },
   {
     slug: "medaillon-heritage",
+    category: "Collier",
+    price: 70,
     name: "Médaillon Héritage",
     stone: "Médaillon",
     images: [
@@ -106,6 +124,51 @@ export const products = [
     ],
     description:
       "Inspiré des bijoux transmis de génération en génération, ce médaillon accompagne les jours précieux.",
+  },
+  {
+    slug: "montre-bleue",
+    category: "Montre",
+    price: 150,
+    name: "Montre Bleue",
+    stone: "Montre",
+    images: [{ src: "/images/products/watches/150 price.png", alt: "Montre au cadran bleu présentée dans un écrin rouge" }],
+    description: "Une montre au cadran bleu profond, au style élégant pour accompagner le quotidien.",
+  },
+  {
+    slug: "montre-verte-classique",
+    category: "Montre",
+    price: 250,
+    name: "Montre Verte Classique",
+    stone: "Montre",
+    images: [{ src: "/images/products/watches/250DH.png", alt: "Montre verte classique présentée dans un écrin noir" }],
+    description: "Une montre verte au cadran raffiné, pensée pour un style intemporel.",
+  },
+  {
+    slug: "montre-verte-sport",
+    category: "Montre",
+    price: 150,
+    name: "Montre Verte Sport",
+    stone: "Montre",
+    images: [{ src: "/images/products/watches/150DH.png", alt: "Montre sport au cadran vert présentée dans un écrin bleu" }],
+    description: "Une montre au cadran vert avec une allure sportive et affirmée.",
+  },
+  {
+    slug: "montre-rectangulaire-noire",
+    category: "Montre",
+    price: 250,
+    name: "Montre Rectangulaire Noire",
+    stone: "Montre",
+    images: [{ src: "/images/products/watches/price is 250.png", alt: "Montre rectangulaire noire présentée dans un écrin rouge" }],
+    description: "Une montre rectangulaire noire aux lignes sobres et contemporaines.",
+  },
+  {
+    slug: "montre-acier-argentee",
+    category: "Montre",
+    price: 280,
+    name: "Montre Acier Argentée",
+    stone: "Montre",
+    images: [{ src: "/images/products/watches/280DH.png", alt: "Montre argentée présentée dans un écrin bleu" }],
+    description: "Une montre argentée au cadran lumineux, élégante et facile à porter.",
   },
 ] as const;
 

@@ -37,7 +37,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
 
   if (!product) notFound();
 
-  const relatedProducts = products.filter((item) => item.slug !== product.slug).slice(0, 4);
+  const relatedProducts = products.filter((item) => item.category === product.category && item.slug !== product.slug).slice(0, 4);
 
   return (
     <>
@@ -62,7 +62,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
               <div className="w-full">
                 <p className="mb-5 flex items-center gap-3 text-[9px] font-semibold uppercase tracking-[0.24em] text-[#8C7043] sm:text-[10px]">
                   <span aria-hidden="true" className="h-px w-8 bg-[#C49A4A]" />
-                  Collier · {product.stone}
+                  {product.category}{product.category === "Collier" ? ` · ${product.stone}` : ""}
                 </p>
                 <h1 className="font-display text-[clamp(2.6rem,5vw,5rem)] leading-[0.98] tracking-[-0.045em] text-[#173C2D]">
                   {product.name}
@@ -78,7 +78,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
                   </p>
                 </div>
 
-                <ProductOrderForm productName={product.name} />
+                <ProductOrderForm productName={product.name} productPrice={product.price} freeDelivery={product.category === "Montre"} />
                 <Link
                   className="mt-6 inline-flex items-center gap-2 text-[10px] font-semibold uppercase tracking-[0.14em] text-[#777567] transition-colors hover:text-[#173C2D] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#C49A4A]"
                   href="/products"
@@ -108,8 +108,9 @@ export default async function ProductPage({ params }: ProductPageProps) {
                   <div className="relative aspect-square overflow-hidden bg-[#E4DED2]">
                     <Image alt={item.images[0].alt} className="object-cover transition-transform duration-500 group-hover:scale-[1.03]" fill sizes="(max-width: 639px) 48vw, 24vw" src={item.images[0].src} />
                   </div>
-                  <p className="mt-3 text-[9px] font-semibold uppercase tracking-[0.12em] text-[#8C7043]">Collier · {item.stone}</p>
+                  <p className="mt-3 text-[9px] font-semibold uppercase tracking-[0.12em] text-[#8C7043]">{item.category}{item.category === "Collier" ? ` · ${item.stone}` : ""}</p>
                   <p className="mt-1 font-serif text-sm text-[#292B25] sm:text-base">{item.name}</p>
+                  <p className="mt-1 text-sm text-[#173C2D]">{item.price} Dh</p>
                 </Link>
               ))}
             </div>

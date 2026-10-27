@@ -84,13 +84,13 @@ function errorText(errors: unknown[]) {
 const fieldClassName =
   "mt-2 min-h-12 w-full rounded-sm border border-[#D8D0C1] bg-white px-4 py-3 text-sm text-[#292B25] outline-none transition-colors placeholder:text-[#999487] focus:border-[#173C2D] focus:ring-2 focus:ring-[#173C2D]/10";
 
-export default function ProductOrderForm({ productName }: { productName: string }) {
+export default function ProductOrderForm({ productName, productPrice, freeDelivery = false }: { productName: string; productPrice: number; freeDelivery?: boolean }) {
   const [attemptedSubmit, setAttemptedSubmit] = useState(false);
   const [showWhatsAppNotice, setShowWhatsAppNotice] = useState(false);
   const [selectedArea, setSelectedArea] = useState("");
   const freeDeliveryAreas = ["Hay Hassani", "Médina", "Maârif"];
-  const deliveryFee = freeDeliveryAreas.includes(selectedArea) ? 0 : 30;
-  const total = 70 + deliveryFee;
+  const deliveryFee = freeDelivery || freeDeliveryAreas.includes(selectedArea) ? 0 : 30;
+  const total = productPrice + deliveryFee;
 
   const form = useForm({
     defaultValues: { name: "", phone: "", area: "", address: "" },
@@ -111,10 +111,10 @@ export default function ProductOrderForm({ productName }: { productName: string 
     >
       <div className="mb-5 flex items-end justify-between gap-4">
         <div>
-          <p className="text-[10px] font-semibold uppercase tracking-[0.16em] text-[#242720]">Commander ce collier</p>
+          <p className="text-[10px] font-semibold uppercase tracking-[0.16em] text-[#242720]">Commander ce produit</p>
           <p className="mt-1 text-xs text-[#777567]">{productName}</p>
         </div>
-        <p className="shrink-0 font-display text-2xl text-[#173C2D]">70 Dh</p>
+        <p className="shrink-0 font-display text-2xl text-[#173C2D]">{productPrice} Dh</p>
       </div>
 
       <div className="grid gap-4 sm:grid-cols-2">
@@ -279,7 +279,7 @@ export default function ProductOrderForm({ productName }: { productName: string 
             `Téléphone : ${phone}`,
             `Quartier : ${area}`,
             `Adresse : ${address}`,
-            "Prix : 70 Dh",
+            `Prix : ${productPrice} Dh`,
             `Livraison : ${deliveryFee === 0 ? "offerte" : `${deliveryFee} Dh`}`,
             `Total : ${total} Dh`,
             "Paiement : espèces à la livraison",

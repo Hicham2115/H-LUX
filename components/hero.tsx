@@ -46,12 +46,12 @@ export default function Hero() {
               <span className="block">qui vous</span>
               <span className="block italic text-[#D9B35F]">ressemble.</span>
             </h1>
-            <p className="mt-7 max-w-[450px] font-display text-base leading-7 text-[#F5F0E6]/90 max-lg:mt-6 max-lg:max-w-[900px] max-lg:font-serif max-lg:text-[clamp(1.05rem,2.4vw,1.5rem)] max-lg:leading-[1.5] lg:mt-8 lg:text-lg lg:leading-8">
+            <p className="mt-7 max-w-[450px] font-display text-base leading-7 text-white max-lg:mt-6 max-lg:max-w-[900px] max-lg:font-serif max-lg:text-[clamp(1.05rem,2.4vw,1.5rem)] max-lg:leading-[1.5] lg:mt-8 lg:text-lg lg:leading-8">
               Des accessoires inspirés du Maroc, pensés avec soin pour révéler
               votre style au quotidien.
             </p>
             <Link
-              className="h-lux-cta mt-8 inline-flex min-h-14 items-center gap-8 border border-[#F5F0E6]/80 px-7 font-display text-[10px] font-medium uppercase tracking-[0.15em] text-[#F5F0E6] transition-colors hover:border-[#D9B35F] hover:bg-transparent hover:text-[#D9B35F] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#D9B35F] max-lg:mt-10 max-lg:min-h-[68px] max-lg:w-full max-lg:max-w-[640px] max-lg:justify-between max-lg:border-[#D9B35F] max-lg:px-6 max-lg:text-xs lg:mt-10 lg:px-8 lg:text-xs"
+              className="h-lux-cta mt-8 inline-flex min-h-14  font-semibold items-center gap-8 border border-[#F5F0E6]/80 px-5 font-display text-[10px]  uppercase tracking-[0.15em] text-[#F5F0E6] transition-colors hover:border-[#D9B35F] hover:bg-transparent hover:text-[#D9B35F] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#D9B35F] max-lg:mt-10 max-lg:min-h-[68px] max-lg:w-full max-lg:max-w-[640px] max-lg:justify-between max-lg:border-[#D9B35F] max-lg:px-6 max-lg:text-xs lg:mt-10 lg:px-5 lg:text-xs"
               href="#nouveautes"
             >
               Découvrir nos bijoux
@@ -60,7 +60,6 @@ export default function Hero() {
           </div>
         </div>
       </div>
-
     </section>
   );
 }

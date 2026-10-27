@@ -13,6 +13,7 @@ const sortOptions = [
 ] as const;
 
 type SortOption = (typeof sortOptions)[number]["value"];
+const categories = ["Tous", "Collier", "Montre"] as const;
 
 function FilterOptions({
   selectedStone,
@@ -21,7 +22,7 @@ function FilterOptions({
   selectedStone: string;
   onSelectStone: (stone: string) => void;
 }) {
-  const stones = ["Tous", ...products.map((product) => product.stone)];
+  const stones = ["Tous", ...new Set(products.filter((product) => product.category === "Collier").map((product) => product.stone))];
 
   return (
     <fieldset className="mt-5 space-y-4">
@@ -49,11 +50,14 @@ function FilterOptions({
 
 export default function ProductsPage() {
   const [sort, setSort] = useState<SortOption>("featured");
+  const [selectedCategory, setSelectedCategory] = useState<(typeof categories)[number]>("Tous");
   const [selectedStone, setSelectedStone] = useState("Tous");
 
   const visibleProducts = useMemo(() => {
     const filtered = products.filter(
-      (product) => selectedStone === "Tous" || product.stone === selectedStone,
+      (product) =>
+        (selectedCategory === "Tous" || product.category === selectedCategory) &&
+        (selectedStone === "Tous" || product.stone === selectedStone),
     );
     if (sort === "ascending") {
       return [...filtered].sort((a, b) => a.name.localeCompare(b.name, "fr"));
@@ -62,7 +66,7 @@ export default function ProductsPage() {
       return [...filtered].sort((a, b) => b.name.localeCompare(a.name, "fr"));
     }
     return filtered;
-  }, [selectedStone, sort]);
+  }, [selectedCategory, selectedStone, sort]);
 
   return (
     <main className="min-h-screen bg-[#F5F0E6] text-[#242720]">
@@ -102,8 +106,7 @@ export default function ProductsPage() {
                 L’élégance marocaine, au quotidien.
               </h1>
               <p className="mt-6 max-w-[440px] font-serif text-sm leading-6 text-[#686459] sm:text-base sm:leading-7">
-                Des colliers et pendentifs inspirés du Maroc, à porter au
-                quotidien comme lors des grands moments.
+                Des bijoux et des montres choisis pour accompagner vos moments du quotidien comme les plus précieux.
               </p>
               <Link
                 className="mt-8 inline-flex min-h-12 items-center gap-8 border border-[#173C2D] px-5 text-[10px] font-semibold uppercase tracking-[0.15em] text-[#173C2D] transition-colors hover:bg-[#173C2D] hover:text-[#F5F0E6] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#C49A4A] sm:min-h-14 sm:px-7 sm:text-xs"
@@ -121,17 +124,26 @@ export default function ProductsPage() {
         <div className="mx-auto max-w-[1500px]">
           <div className="mb-6 grid gap-4 sm:grid-cols-[1fr_auto] sm:items-end lg:hidden">
             <label className="flex flex-col gap-2 text-[10px] font-semibold uppercase tracking-[0.14em] text-[#777567]">
-              Pierre
+              Catégorie
               <select
                 className="h-11 rounded-none border border-[#CFC3AD] bg-transparent px-3 text-sm font-normal normal-case tracking-normal text-[#242720] focus-visible:outline-2 focus-visible:outline-[#173C2D]"
-                onChange={(event) => setSelectedStone(event.target.value)}
-                value={selectedStone}
+                onChange={(event) => {
+                  setSelectedCategory(event.target.value as (typeof categories)[number]);
+                  setSelectedStone("Tous");
+                }}
+                value={selectedCategory}
               >
-                {["Tous", ...products.map((product) => product.stone)].map((stone) => (
-                  <option key={stone} value={stone}>{stone === "Tous" ? "Toutes les pierres" : stone}</option>
+                {categories.map((category) => (
+                  <option key={category} value={category}>{category === "Tous" ? "Toutes les catégories" : category === "Collier" ? "Colliers" : "Montres"}</option>
                 ))}
               </select>
             </label>
+            {(selectedCategory === "Tous" || selectedCategory === "Collier") && <label className="flex flex-col gap-2 text-[10px] font-semibold uppercase tracking-[0.14em] text-[#777567]">
+              Pierre
+              <select className="h-11 rounded-none border border-[#CFC3AD] bg-transparent px-3 text-sm font-normal normal-case tracking-normal text-[#242720] focus-visible:outline-2 focus-visible:outline-[#173C2D]" onChange={(event) => setSelectedStone(event.target.value)} value={selectedStone}>
+                {["Tous", ...new Set(products.filter((product) => product.category === "Collier").map((product) => product.stone))].map((stone) => <option key={stone} value={stone}>{stone === "Tous" ? "Toutes les pierres" : stone}</option>)}
+              </select>
+            </label>}
             <label className="flex flex-col gap-2 text-[10px] font-semibold uppercase tracking-[0.14em] text-[#777567]">
               Trier par
               <select
@@ -173,18 +185,23 @@ export default function ProductsPage() {
                   Catégorie
                   <span aria-hidden="true" className="transition-transform group-open:rotate-180">⌄</span>
                 </summary>
-                <p className="mt-5 flex items-center gap-3 text-sm text-[#4D4B43]">
-                  <span className="size-4 rounded-full border-[5px] border-[#173C2D]" aria-hidden="true" />
-                  Colliers <span className="text-[#8A877E]">({products.length})</span>
-                </p>
+                <div className="mt-5 space-y-4">
+                  {categories.map((category, index) => (
+                    <label className="flex cursor-pointer items-center gap-3 text-sm text-[#4D4B43]" htmlFor={`category-${index}`} key={category}>
+                      <input checked={selectedCategory === category} className="size-4 accent-[#173C2D]" id={`category-${index}`} name="category" onChange={() => { setSelectedCategory(category); setSelectedStone("Tous"); }} type="radio" />
+                      {category === "Tous" ? "Toutes les catégories" : category === "Collier" ? "Colliers" : "Montres"}
+                      {category !== "Tous" && <span className="text-[#8A877E]">({products.filter((product) => product.category === category).length})</span>}
+                    </label>
+                  ))}
+                </div>
               </details>
-              <details className="group border-t border-[#D7D1C5] py-5" open>
+              {selectedCategory !== "Montre" && <details className="group border-t border-[#D7D1C5] py-5" open>
                 <summary className="flex cursor-pointer list-none items-center justify-between text-xs font-semibold uppercase tracking-[0.14em] text-[#242720] [&::-webkit-details-marker]:hidden">
                   Pierre
                   <span aria-hidden="true" className="transition-transform group-open:rotate-180">⌄</span>
                 </summary>
                 <FilterOptions onSelectStone={setSelectedStone} selectedStone={selectedStone} />
-              </details>
+              </details>}
             </aside>
 
             <div id="collection-grid">
@@ -221,11 +238,12 @@ export default function ProductsPage() {
                     </div>
                     <div className="mt-3 sm:mt-4">
                       <p className="text-[9px] font-semibold uppercase tracking-[0.14em] text-[#8C7043] sm:text-[10px]">
-                        Collier · {product.stone}
+                        {product.category}{product.category === "Collier" ? ` · ${product.stone}` : ""}
                       </p>
                       <h2 className="mt-1 font-serif text-sm text-[#292B25] sm:text-base">
                         {product.name}
                       </h2>
+                      <p className="mt-1 text-sm text-[#173C2D]">{product.price} Dh</p>
                     </div>
                     </Link>
                   </article>

@@ -12,7 +12,7 @@ const questions = [
   {
     question: "La livraison est-elle offerte ?",
     answer:
-      "À Casablanca, la livraison est offerte à Hay Hassani, Médina et Maârif. Elle coûte 30 Dh dans les autres quartiers. Le tarif et le total s’affichent avant l’envoi de votre commande.",
+      "La livraison des montres est offerte. Pour les colliers, elle est offerte à Hay Hassani, Médina et Maârif à Casablanca, et coûte 30 Dh dans les autres quartiers. Le tarif et le total s’affichent avant l’envoi de votre commande.",
   },
   {
     question: "Puis-je retourner ma commande ?",
